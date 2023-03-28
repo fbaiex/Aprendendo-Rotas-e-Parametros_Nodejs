@@ -18,10 +18,20 @@ app.get("/blog/:artigo?",function(req,res){
 
 });
 
+//Query params
+
 app.get("/canal/youtube",function(req,res){
 
-    res.send("Bem vindo ao meu canal!");
+    var canal = req.query["canal"];
+
+    if(canal){
+      res.send(canal);
+    }else{
+        res.send("Nenhum canal fornecido!");
+    }
 })
+
+//Query params
 
 app.get("/ola/:nome/:empresa", function(req,res){
 
